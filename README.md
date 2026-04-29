@@ -42,6 +42,32 @@ The warehouse supports quarterly reporting across a simulated 10-store grocery c
    - `fact_sales`
 5. Run validation and quarterly business reporting queries.
 
+## Business Questions Answered
+
+The warehouse was designed around a quarterly sales reporting problem for a multi-store grocery business. Corporate management needed a single Redshift warehouse that could combine transaction data, product details, date attributes, and store information for reporting across all store locations.
+
+| Business question | Warehouse approach | Query location |
+| --- | --- | --- |
+| What is total sales activity across the warehouse? | Count all records in `fact_sales` and sum transaction revenue. | `sql/04_validation_and_reports.sql` |
+| Which stores have the highest or lowest sales activity? | Group `fact_sales` by `store_id`, year, and quarter to compare store performance. | `sql/04_validation_and_reports.sql` |
+| How do sales trend over time? | Use `sale_date` and quarterly grouping to analyze seasonality across 2025. | `sql/04_validation_and_reports.sql` |
+| Which products are top sellers? | Join `fact_sales` to `dim_item`, then rank SKUs by quantity sold and total revenue. | `sql/04_validation_and_reports.sql` |
+| Is the warehouse structure valid after loading? | Check staging, dimension, and fact table row counts, then run join sanity checks. | `sql/04_validation_and_reports.sql` |
+| How is Redshift processing the report query? | Use `EXPLAIN` to inspect the query execution plan. | `sql/04_validation_and_reports.sql` |
+
+## Report Outputs
+
+The reporting SQL produces the following outputs:
+
+- Total transaction count and total sales revenue
+- Sales totals by store, year, and quarter
+- Sales totals by year and quarter
+- Top-selling products by SKU and product name
+- Table metadata from Redshift system views
+- Query execution plan for a grouped sales report
+
+The project also demonstrates why Redshift is a better fit than SQLite for larger analytical workloads: the fact table can be distributed by store, sorted by sale date and product, and queried with Redshift's columnar storage and parallel processing engine.
+
 ## Security Notes
 
 The original Redshift load script included a project-specific S3 bucket path and IAM role ARN. Those values were replaced with placeholders in `sql/02_load_from_s3.sql`:
