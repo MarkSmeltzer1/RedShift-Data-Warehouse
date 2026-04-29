@@ -1,8 +1,20 @@
-# Retail Analytics Data Warehouse on Amazon Redshift
+# Retail Analytics Data Warehouse (AWS Redshift)
 
-Designed and implemented a cloud data warehouse using Amazon Redshift and Amazon S3 to analyze grocery store sales across a simulated 10-store retail chain. The project migrates a local SQLite dataset into a Redshift analytics workflow, transforms raw sales data into a star schema, and supports high-performance SQL reporting for store, product, and time-based sales analysis.
+## Overview
 
-This project demonstrates how a traditional local database can be moved into a scalable cloud warehouse architecture built for analytical queries, business intelligence, and larger reporting workloads.
+Designed and implemented a scalable cloud data warehouse using Amazon Redshift and Amazon S3 to process and analyze 17M+ sales records across a simulated 10-store retail chain.
+
+The system transforms raw transactional data into a star schema and enables high-performance SQL analytics for store performance, product trends, and time-based reporting.
+
+This project simulates how enterprise retail systems transition from transactional databases to scalable cloud analytics platforms for business decision-making.
+
+## Tech Stack
+
+- Cloud: Amazon S3, Amazon Redshift
+- Languages: SQL, Python
+- Data Processing: ETL pipelines, CSV exports, Redshift `COPY`
+- Architecture: Star schema, dimensional modeling, cloud data warehousing
+- Tools: Redshift Query Editor v2, `EXPLAIN` plans, Redshift system views
 
 ## Business Problem
 
@@ -44,7 +56,7 @@ The fact table uses a Redshift distribution key on `store_id` and a sort key on 
 - Built a cloud warehouse workflow using Amazon S3 and Amazon Redshift.
 - Loaded CSV source data into Redshift staging tables using `COPY`.
 - Designed a star schema for scalable analytical reporting.
-- Simulated a multi-store retail environment from a single-store source dataset.
+- Simulated a multi-store retail environment by scaling a single-store dataset to support enterprise-level analytics.
 - Wrote SQL validation checks for staging, dimension, and fact tables.
 - Created reporting queries for total sales, store performance, quarterly trends, and top-selling products.
 - Used Redshift metadata views and `EXPLAIN` plans to inspect table structure and query execution.
