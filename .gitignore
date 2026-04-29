@@ -1,0 +1,30 @@
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated data and report outputs
+data/raw/
+data/processed/
+outputs/
+*.csv
+
+# Secrets and local config
+.env
+.env.*
+*.pem
+*.key
+credentials*
+config.local.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
