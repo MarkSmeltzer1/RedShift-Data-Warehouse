@@ -19,15 +19,15 @@ The warehouse supports quarterly reporting across a simulated 10-store grocery c
 
 ```text
 .
-├── scripts/
-│   └── export_to_csv.py
-├── sql/
-│   ├── 01_create_staging_tables.sql
-│   ├── 02_load_from_s3.sql
-│   ├── 03_build_star_schema.sql
-│   └── 04_validation_and_reports.sql
-├── data/
-└── outputs/
+|-- scripts/
+|   `-- export_to_csv.py
+|-- sql/
+|   |-- 01_create_staging_tables.sql
+|   |-- 02_load_from_s3.sql
+|   |-- 03_build_star_schema.sql
+|   `-- 04_validation_and_reports.sql
+|-- data/
+`-- outputs/
 ```
 
 ## Data Flow
@@ -69,7 +69,3 @@ sql/02_load_from_s3.sql
 sql/03_build_star_schema.sql
 sql/04_validation_and_reports.sql
 ```
-
-## Notes
-
-The project presentation is not included in this repository. The repository focuses on the Redshift warehouse scripts, export workflow, and project documentation needed to reproduce the data warehouse.
